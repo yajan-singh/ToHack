@@ -1,13 +1,11 @@
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class MainOverview {
+public class MainOverview extends JFrame {
     public MainOverview(){
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-        panel.setLayout(null);
+        super("GUI");
+        setSize(400,300);
+        setResizable(true);
+        setDefaultCloseOperation();
     }
     public static void main(String[] args) {
         new MainOverview();
