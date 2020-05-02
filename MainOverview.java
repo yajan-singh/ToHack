@@ -11,7 +11,6 @@ public class MainOverview extends JFrame {
     }
     public static void main(String[] args) {
         new MainOverview();
-        Map<String, ArrayList> favoriteColors = new TreeMap<String, ArrayList>();
 
     }
 }
