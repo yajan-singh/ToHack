@@ -13,6 +13,8 @@ public class Hospitol
        this.rows = rows;
        this.columns = columns;
     }
+}
+
 
 
     
