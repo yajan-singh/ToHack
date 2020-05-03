@@ -19,7 +19,6 @@ public class Terminal
         Patients.remove(roomNumber);
     }
 
-
     public void updateCondition(Patient pat,String condition)
     {
         pat.setCondition(condition);
