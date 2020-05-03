@@ -3,14 +3,11 @@ import java.util.*;
 
 public class Hospitol 
 {
+    private int NumberOfRooms;
 
-    //ArrayList<String> listOfPatients = new ArrayList<String>();
-    TreeMap<String, Room> room = new TreeMap<String, Room>();// the key set is going to be the room number 
-
-
-    public Hospitol() 
+    public Hospitol(int NumberOfRooms) 
     {
-       
+       this.NumberOfRooms = NumberOfRooms;
     }
 
 
