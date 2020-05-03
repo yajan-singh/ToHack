@@ -14,21 +14,9 @@ public class Terminal
         Patient NewPatient = new Patient(Name, age, condition);
         placePatient(NewPatient);
     }
-<<<<<<< HEAD
     public void removePatient(int roomNumber)
     {
         Patients.remove(roomNumber);
-    }
-    public void updateCondition(Patient pat)
-    {
-
-=======
-
-
-    public void removePatient(int roomNumber)//useful to see if the room is taken or not 
-    {
-        Patients.remove(roomNumber);
->>>>>>> 361f70456592b96f8435ceb371b87ada0daf8cac
     }
 
 
@@ -40,7 +28,16 @@ public class Terminal
 
     public void placePatient(Patient pat)//checking look for boundaries
     {
-        
+        for(int i =0; i < Rooms.length;i++)
+        {
+            for(int j = 0; j < Rooms[0].length;j++)
+            {
+                if(checkCollisions(i, j, pat))
+                {
+                    Patients.put((i+1 * j+1), pat);
+                }
+            }
+        }
     }
     private boolean checkCollisions(int i , int j,Patient currentPatient)
     {
@@ -61,7 +58,7 @@ public class Terminal
             }
         }
     }
-    if(i==0 && j == Rooms[0].length)
+    if(i==0 && j == Rooms[0].length-1)
     {
         if(Rooms[i+1][j] != null)
         {
@@ -79,12 +76,169 @@ public class Terminal
         }
 
     }
-    if(i==Rooms.length && j==0)
+    if(i==Rooms.length-1 && j==0)
     {
-        if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+        if(Rooms[i-1][j]!=null)
         {
+         if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }   
+        }
+        if(Rooms[i][j+1]!=null)
+        {
+          if(Rooms[i][j+1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }    
             
+    }
+    if(i==Rooms.length-1 && j==Rooms[0].length-1)
+    {
+        if(Rooms[i-1][j]!=null)
+        {
+          if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+        if(Rooms[i][j-1]!=null)
+        {
+          if(Rooms[i][j-1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+            
+    }
+    if(i==0)
+    {
+        if(Rooms[i][j-1]!=null)
+        {
+            if(Rooms[i][j-1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+        if(Rooms[i][j+1]!=null)
+        {
+            if(Rooms[i][j+1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+        if(Rooms[i+1][j]!=null)
+        {
+            if(Rooms[i+1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
         }
     }
+    if(i==Rooms.length-1)
+    {
+        if(Rooms[i][j-1]!=null)
+        {
+            if(Rooms[i][j-1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+        if(Rooms[i][j+1]!=null)
+        {
+            if(Rooms[i][j+1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+        if(Rooms[i-1][j]!=null)
+        {
+            if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+    }
+    if(j==0)
+    {
+        if(Rooms[i+1][j]!=null)
+        {
+            if(Rooms[i+1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            } 
+        }
+        if(Rooms[i-1][j]!=null)
+        {
+            if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }    
+        }
+        if(Rooms[i][j+1]!=null)
+        {
+            if(Rooms[i][j+1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+    }
+    if(j==Rooms[0].length-1)
+    {
+        if(Rooms[i+1][j]!=null)
+        {
+            if(Rooms[i+1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            } 
+        }
+        if(Rooms[i-1][j]!=null)
+        {
+            if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }    
+        }
+        if(Rooms[i][j-1]!=null)
+        {
+            if(Rooms[i][j-1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }    
+        }
+    }
+    else
+    {
+        if(Rooms[i+1][j]!=null)
+        {
+            if(Rooms[i+1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            } 
+        }
+        if(Rooms[i-1][j]!=null)
+        {
+            if(Rooms[i-1][j].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }    
+        }
+        if(Rooms[i][j-1]!=null)
+        {
+            if(Rooms[i][j-1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }    
+        }
+        if(Rooms[i][j+1]!=null)
+        {
+            if(Rooms[i][j+1].getCondition().equalsIgnoreCase("covid-19")||currentPatient.getCondition().equalsIgnoreCase("covid-19"))
+            {
+                return false;
+            }  
+        }
+    }
+    return true;
     }
 }
