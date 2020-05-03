@@ -8,16 +8,22 @@ public class Terminal
     {
 
     }
-    public void removePatient(int roomNumber)
-    {
 
+
+    public void removePatient(int roomNumber)//useful to see if the room is taken or not 
+    {
+        Patients.remove(roomNumber);
     }
-    public void updateCondition(Patient pat)
+
+
+    public void updateCondition(Patient pat,String condition)
+    {
+        pat.setCondition(condition);
+    }
+
+
+    public void placePatient(Patient pat)//checking look for boundaries
     {
         
-    }
-    public void placePatient(Patient pat)
-    {
-
     }
 }

@@ -9,6 +9,8 @@ public class Hospitol
     {
        this.NumberOfRooms = NumberOfRooms;
     }
+}
+
 
 
     

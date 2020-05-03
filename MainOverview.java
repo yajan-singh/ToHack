@@ -14,7 +14,7 @@ public class MainOverview extends JFrame {
     JTextArea ta = new JTextArea("How does this look?", 2, 20);
     JLabel l = new JLabel("Lable");
     public static void main(String[] args) {
-        new MainOverview();
+    new MainOverview();
 
     }
 
